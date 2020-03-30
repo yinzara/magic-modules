@@ -66,4 +66,54 @@ objects:
         output: true
         description: |
           The GCP project display name
+      - !ruby/object:Api::Type::NestedObject
+        name: resources
+        description: |
+          The default Firebase resources associated with the Project.
+        output: true
+        properties:
+          - !ruby/object:Api::Type::String
+            name: hostingSite
+            output: true
+            description: |
+              The default Firebase Hosting site name, in the format:
 
+              projectId.
+
+              Though rare, your projectId might already be used as the name for an existing Hosting site in another
+              project (learn more about creating non-default, additional sites). In these cases, your projectId is
+              appended with a hyphen then five alphanumeric characters to create your default Hosting site name.
+
+              For example, if your projectId is myproject123, your default Hosting site name might be:
+
+              myproject123-a5c16'
+          - !ruby/object:Api::Type::String
+            name: realtimeDatabaseInstance
+            output: true
+            description: |
+              The default Firebase Realtime Database instance name, in the format:
+
+              projectId.
+
+              Though rare, your projectId might already be used as the name for an existing Realtime Database instance
+              in another project (learn more about database sharding). In these cases, your projectId is appended with
+              a hyphen then five alphanumeric characters to create your default Realtime Database instance name.
+
+              For example, if your projectId is myproject123, your default database instance name might be:
+
+              myproject123-a5c16'
+          - !ruby/object:Api::Type::String
+            name: storageBucket
+            output: true
+            description: |
+              The default Cloud Storage for Firebase storage bucket, in the format:
+
+              projectId.appspot.com'
+          - !ruby/object:Api::Type::String
+            name: locationId
+            output: true
+            description: |
+              The ID of the project's default GCP resource location. The location is one of the available GCP resource
+              locations. This field is omitted if the default GCP resource location has not been finalized yet. To set
+              your project's default GCP resource location, call defaultLocation.finalize after you add Firebase
+              services to your project."

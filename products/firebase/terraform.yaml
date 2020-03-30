@@ -25,13 +25,10 @@ overrides: !ruby/object:Overrides::ResourceOverrides
     examples:
       - !ruby/object:Provider::Terraform::Examples
         name: "firebase_project_basic"
-        min_version: 'beta'
+        min_version: "beta"
         primary_resource_id: "basic"
-        vars:
-          instance_name: "memory-cache"
         test_env_vars:
           org_id: :ORG_ID
-
 # This is for copying files over
 files: !ruby/object:Provider::Config::Files
   # These files have templating (ERB) code that will be run.
